@@ -12,7 +12,7 @@ img.optionbutton{z-index:1000;width:40pt;height:40pt;position:absolute;top:10pt;
 
 </style>
 </head>
-<body> 
+<body>
 <img id=optionA class='optionbutton closeopts' src="opt-but-A.png">
 <img id=optionB class='optionbutton closeopts' src="opt-but-B.png">
 <img id=optionC class='optionbutton closeopts' src="opt-but-C.png">
@@ -66,16 +66,16 @@ function closeOptions(){
 		$("img#optionMain").animate({ rotateZ: '0deg' },200,'ease-out').removeClass('opened');
 	});
 }
-$("img#optionMain").on('click tap',function(){ if($(this).hasClass('opened')){ closeOptions(); }else{ openOptions(); } });
-$(".openopts").on('click tap',function(){ openOptions(); });
-$(".closeopts").on('click tap',function(){ closeOptions(); });
+$("img#optionMain").on('tap',function(){ if($(this).hasClass('opened')){ closeOptions(); }else{ openOptions(); } });
+$(".openopts").on('tap',function(){ openOptions(); });
+$(".closeopts").on('tap',function(){ closeOptions(); });
 
 
-$("img#optionA").on('click tap',function(){ $("div.page").hide(); $("div#page1").show(); });
-$("img#optionB").on('click tap',function(){ $("div.page").hide(); $("div#page2").show(); });
-$("img#optionC").on('click tap',function(){ $("div.page").hide(); $("div#page3").show(); });
-$("img#optionD").on('click tap',function(){ $("div.page").hide(); $("div#page4").show(); });
-$("img#optionE").on('click tap',function(){ $("div.page").hide(); $("div#page5").show(); });
+$("img#optionA").on('tap',function(){ $("div.page").hide(); $("div#page1").show(); });
+$("img#optionB").on('tap',function(){ $("div.page").hide(); $("div#page2").show(); });
+$("img#optionC").on('tap',function(){ $("div.page").hide(); $("div#page3").show(); });
+$("img#optionD").on('tap',function(){ $("div.page").hide(); $("div#page4").show(); });
+$("img#optionE").on('tap',function(){ $("div.page").hide(); $("div#page5").show(); });
 
 
 
@@ -98,12 +98,12 @@ $('.delete').tap(function(){
 $("#items").swipeRight(function(){
 $(this).animate(
 	{
-		opacity: 0.0, 
+		opacity: 0.0,
 		left: '100%',
 		color: '#0000FF',
-		rotateX: '720deg', 
+		rotateX: '720deg',
 		translate3d: '100px,00px,00px'
-	}, 
+	},
 	400,
 	'ease-out'
 );
