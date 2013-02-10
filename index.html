@@ -47,6 +47,7 @@ img.optionbutton{z-index:1000;width:40pt;height:40pt;position:absolute;top:10pt;
 </div>
 
 </body>
+<script src="phonegap.js"></script>
 <script src="zepto.min.js"></script>
 <script>// http://zeptojs.com/
 Zepto(function($){
@@ -58,24 +59,28 @@ function openOptions(){
 	$("img#optionC").animate({ rotateZ: '720deg', top:  '98pt' , left: '98pt' },190,'ease-out');
 	$("img#optionD").animate({ rotateZ: '720deg', top:  '125pt' , left: '55pt' },215,'ease-out');
 	$("img#optionE").animate({ rotateZ: '720deg', top: '135pt' , left: '5pt' },240,'ease-out');
-	$("img#optionMain").animate({ rotateZ: '180deg' },200,'ease-out').addClass('opened');
+	$("img#optionMain").animate({ rotateZ: '180deg' },200,'ease-out',function(){
+	    $(this).addClass('opened');
+	});
 }
 function closeOptions(){
 	$("img.optionbutton").animate({ rotateZ: '360deg'},250,'ease-in',function(){
 		$("img.optionbutton").animate({ rotateZ: '0deg', top: '10pt', left:'10pt' },200,'ease-in')
-		$("img#optionMain").animate({ rotateZ: '0deg' },200,'ease-out').removeClass('opened');
+		$("img#optionMain").animate({ rotateZ: '0deg' },200,'ease-out',function(){
+            $(this).removeClass('opened');
+        });
 	});
 }
-$("img#optionMain").on('tap',function(){ if($(this).hasClass('opened')){ closeOptions(); }else{ openOptions(); } });
-$(".openopts").on('tap',function(){ openOptions(); });
-$(".closeopts").on('tap',function(){ closeOptions(); });
+$("img#optionMain").on('click tap',function(){ if($(this).hasClass('opened')){ closeOptions(); }else{ openOptions(); } });
+$(".openopts").on('click tap',function(){ openOptions(); });
+$(".closeopts").on('click tap',function(){ closeOptions(); });
 
 
-$("img#optionA").on('tap',function(){ $("div.page").hide(); $("div#page1").show(); });
-$("img#optionB").on('tap',function(){ $("div.page").hide(); $("div#page2").show(); });
-$("img#optionC").on('tap',function(){ $("div.page").hide(); $("div#page3").show(); });
-$("img#optionD").on('tap',function(){ $("div.page").hide(); $("div#page4").show(); });
-$("img#optionE").on('tap',function(){ $("div.page").hide(); $("div#page5").show(); });
+$("img#optionA").on('click tap',function(){ $("div.page").hide(); $("div#page1").show(); });
+$("img#optionB").on('click tap',function(){ $("div.page").hide(); $("div#page2").show(); });
+$("img#optionC").on('click tap',function(){ $("div.page").hide(); $("div#page3").show(); });
+$("img#optionD").on('click tap',function(){ $("div.page").hide(); $("div#page4").show(); });
+$("img#optionE").on('click tap',function(){ $("div.page").hide(); $("div#page5").show(); });
 
 
 
