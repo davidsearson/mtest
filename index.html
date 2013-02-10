@@ -1,10 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="utf-8" />
-	<title>MTEST</title>
+<title></title>
+<style>
+html,body{font-family:arial;font-size:12pt;margin:0pt;padding:0pt;}
+img.optionbutton{z-index:1000;width:40pt;height:40pt;position:absolute;top:10pt;left:10pt;}
+#optionMain{z-index:1000;width:50pt;height:50pt;position:absolute;top:3pt;left:3pt;}
+
+.page{z-index:100;display:none;position:absolute;margin:0;padding:0pt;}
+.page h1{margin:0;padding:10pt;text-align:center;color:white;}
+.page p{padding:10pt;}
+
+</style>
 </head>
-<body>
-Hello World
+<body> 
+<img id=optionA class='optionbutton closeopts' src="opt-but-A.png">
+<img id=optionB class='optionbutton closeopts' src="opt-but-B.png">
+<img id=optionC class='optionbutton closeopts' src="opt-but-C.png">
+<img id=optionD class='optionbutton closeopts' src="opt-but-D.png">
+<img id=optionE class='optionbutton closeopts' src="opt-but-E.png">
+<img id=optionMain class=closed src="opt-but-main.png">
+
+
+<ul style="position:absolute;top:300px;line-height:40pt;">
+	<li class=openopts>open</li>
+	<li class=closeopts>close</li>
+</ul>
+<div id=page1 class=page>
+	<h1 style="background:DarkSlateGray;">Chat</h1>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris ac enim. In convallis sapien. Cras pede ligula, molestie quis, sagittis in, sagittis ac, felis. In vel felis. Pellentesque at metus non lorem mattis pellentesque. Pellentesque accumsan. Etiam nec erat. Proin adipiscing venenatis augue. Integer elit. Ut nonummy libero in massa. Sed mauris neque, posuere id, lacinia ac, tristique vel, ligula. Sed id lacus id justo feugiat rutrum. Aliquam pharetra sodales elit. In sodales. Ut fermentum enim at urna. Donec ac eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin mollis ante in erat. Maecenas fermentum pellentesque tellus.</p>
+</div>
+<div id=page2 class=page>
+	<h1 style="background:DarkMagenta;">Help</h1>
+	<p>Curabitur ut odio. Quisque ultricies bibendum urna. In hac habitasse platea dictumst. Nullam diam felis, gravida et, suscipit eu, auctor ac, nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eu urna. Vivamus ut libero vel eros bibendum gravida. Sed tempor sagittis eros. Nulla aliquam congue lectus. Nunc tincidunt nisl a eros. Sed congue. Nulla placerat leo eget libero. Phasellus congue erat ut ligula. Quisque sollicitudin lectus in arcu. Nunc vitae turpis at libero lacinia consectetuer. Phasellus in pede ut diam molestie posuere.</p>
+</div>
+<div id=page3 class=page>
+	<h1 style="background:orange;">Lists</h1>
+	<p>Phasellus id mi. Vivamus egestas semper augue. Ut tellus. In posuere. Etiam pretium porta odio. Fusce rhoncus rhoncus lacus. Donec cursus ullamcorper elit. Aliquam rhoncus nunc sollicitudin dolor. Morbi interdum, augue a condimentum commodo, magna sem ultrices mi, vitae malesuada tortor felis a erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam erat volutpat. Mauris nec leo ac tortor iaculis aliquam. Aliquam auctor, nunc vel feugiat vehicula, tellus turpis posuere odio, vel vulputate mi augue vitae tellus. Suspendisse porta pede semper nisl.</p>
+</div>
+<div id=page4 class=page>
+	<h1 style="background:olive;">Profile</h1>
+	<p>Nam non elit. Aenean posuere semper neque. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Fusce pharetra mi cursus ligula. Duis dapibus. Pellentesque tempus, augue sit amet ornare posuere, tellus elit sollicitudin lorem, nec venenatis odio nunc in risus. Duis ullamcorper dui hendrerit wisi. Quisque tellus dui, venenatis a, aliquet sed, tempus at, quam. In sagittis gravida orci. Donec ipsum urna, ultricies eget, vulputate egestas, suscipit id, mauris. Pellentesque felis urna, ultricies vitae, fermentum ut, semper non, mi. Vivamus in turpis. In interdum tincidunt wisi. Cras nibh dolor, hendrerit ut, imperdiet quis, facilisis quis, wisi. Vestibulum dictum, metus ut semper pulvinar, diam wisi molestie nulla, vel accumsan lorem dui fringilla diam.</p>
+</div>
+<div id=page5 class=page>
+	<h1 style="background:teal;">Home</h1>
+	<p>Proin ornare, arcu eu faucibus tempus, metus nunc bibendum mauris, ac aliquam neque nibh id justo. Fusce lobortis, massa vel tincidunt mollis, nunc felis tempus velit, ac ultrices metus mauris aliquam nunc. Praesent nec nibh blandit augue malesuada commodo. Ut dictum. Phasellus nisl wisi, ultricies vitae, pellentesque ut, fringilla pulvinar, lectus. Aliquam nec elit. Integer in nulla a tortor vestibulum auctor. Mauris dictum ligula sollicitudin elit. Nullam rhoncus purus eu elit. Vivamus dictum dui a nisl. Maecenas id est. Cras tincidunt urna sit amet augue.</p>
+</div>
+
 </body>
+<script src="zepto.min.js"></script>
+<script>// http://zeptojs.com/
+Zepto(function($){
+
+// the floating option buttons
+function openOptions(){
+	$("img#optionA").animate({ rotateZ: '720deg', top: '5pt' , left: '135pt' },140,'ease-out');
+	$("img#optionB").animate({ rotateZ: '720deg', top: '55pt' , left: '125pt' },165,'ease-out');
+	$("img#optionC").animate({ rotateZ: '720deg', top:  '98pt' , left: '98pt' },190,'ease-out');
+	$("img#optionD").animate({ rotateZ: '720deg', top:  '125pt' , left: '55pt' },215,'ease-out');
+	$("img#optionE").animate({ rotateZ: '720deg', top: '135pt' , left: '5pt' },240,'ease-out');
+	$("img#optionMain").animate({ rotateZ: '180deg' },200,'ease-out').addClass('opened');
+}
+function closeOptions(){
+	$("img.optionbutton").animate({ rotateZ: '360deg'},250,'ease-in',function(){
+		$("img.optionbutton").animate({ rotateZ: '0deg', top: '10pt', left:'10pt' },200,'ease-in')
+		$("img#optionMain").animate({ rotateZ: '0deg' },200,'ease-out').removeClass('opened');
+	});
+}
+$("img#optionMain").on('click tap',function(){ if($(this).hasClass('opened')){ closeOptions(); }else{ openOptions(); } });
+$(".openopts").on('click tap',function(){ openOptions(); });
+$(".closeopts").on('click tap',function(){ closeOptions(); });
+
+
+$("img#optionA").on('click tap',function(){ $("div.page").hide(); $("div#page1").show(); });
+$("img#optionB").on('click tap',function(){ $("div.page").hide(); $("div#page2").show(); });
+$("img#optionC").on('click tap',function(){ $("div.page").hide(); $("div#page3").show(); });
+$("img#optionD").on('click tap',function(){ $("div.page").hide(); $("div#page4").show(); });
+$("img#optionE").on('click tap',function(){ $("div.page").hide(); $("div#page5").show(); });
+
+
+
+
+
+
+
+
+
+
+
+
+
+$('.delete').tap(function(){
+	$(this).parent('li').remove()
+})
+
+
+
+$("#items").swipeRight(function(){
+$(this).animate(
+	{
+		opacity: 0.0, 
+		left: '100%',
+		color: '#0000FF',
+		rotateX: '720deg', 
+		translate3d: '100px,00px,00px'
+	}, 
+	400,
+	'ease-out'
+);
+});
+
+
+
+
+
+
+
+
+});
+</script>
 </html>
